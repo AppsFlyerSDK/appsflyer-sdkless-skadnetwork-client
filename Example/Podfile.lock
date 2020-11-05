@@ -1,0 +1,39 @@
+PODS:
+  - AppsFlyerSDKLessSKAdNetworkClient (0.1.0)
+  - OCMock (3.7.1)
+  - OHHTTPStubs (9.0.0):
+    - OHHTTPStubs/Default (= 9.0.0)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+
+DEPENDENCIES:
+  - AppsFlyerSDKLessSKAdNetworkClient (from `../`)
+  - OCMock
+  - OHHTTPStubs
+
+SPEC REPOS:
+  trunk:
+    - OCMock
+    - OHHTTPStubs
+
+EXTERNAL SOURCES:
+  AppsFlyerSDKLessSKAdNetworkClient:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AppsFlyerSDKLessSKAdNetworkClient: 44d763f65e392a0f1345577950550a7868c82b3b
+  OCMock: 75fbeaa46a9b11f8c182bbb1d1f7e9a35ccc9955
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
+
+PODFILE CHECKSUM: 39da7cb420300456abfc655a911964dfebb896c2
+
+COCOAPODS: 1.9.3
