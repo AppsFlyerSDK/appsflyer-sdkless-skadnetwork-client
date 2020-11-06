@@ -15,4 +15,7 @@ playground.xcworkspace
 
 .build/
 Pods/
+*.xcworkspace
+*.gitkeep
+Podfile.lock
 
