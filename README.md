@@ -15,12 +15,13 @@ The repository has 2 parts:
 
 Call the SK API with **GET** request that has the following query params:
 
-`uid` - appsflyer id
-`app_id` - application id
-`af_timestamp` - current time in seconds
-`af_sig` - Create an HMAC SHA256 signature by concatenating the values of the timestamp, dev key, app id, and AppsFlyer id:
+Key    |   Description
+---            |   ---
+`uid`          |   appsflyer id
+`app_id`       |   application id
+`af_timestamp` |   current time in seconds
+`af_sig`       |   Create an HMAC SHA256 signature by concatenating the values of the timestamp, dev key, app id, and AppsFlyer id: `HmacSHA256(af_timestamp + DevKey + app_id + uid)`
 
-`HmacSHA256(af_timestamp + DevKey + app_id + uid)`
 
 app_id in a format - `"idxxxxxxx"`
 The HMAC is generated using SHA256 and uses the DevKey as the signature’s secret key. The account Dev Key is taken from the App Settings page in the AppsFlyer dashboard.
@@ -41,11 +42,13 @@ SK API will return the following *conversion value* response as JSON:
 
 ##### Response codes
 
-*200* - the conversion value
-*400* - invalid request (params or headers missing or malformed)
-*401* - invalid signature
-*404* - uid not found/expired
-*503* - server busy  
+Code    |   Description
+---             |   ---
+200          |   the conversion value
+400          |   invalid request (params or headers missing or malformed)
+401            |   invalid signature
+404            |   uid not found/expired
+503          |   server busy  
 
 
 ### How to run the Sample App
