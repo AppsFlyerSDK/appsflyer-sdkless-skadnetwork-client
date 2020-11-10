@@ -37,7 +37,10 @@
         NSURL *url = [self buildRequestURLWithUID:clientID appId:appID devKey:devKey];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        NSDictionary *httpHeaderFields = [self buidRequestHeadersWithDevKey:devKey appID:appID uid:clientID];
+        
         [request setHTTPMethod:@"GET"];
+        [request setAllHTTPHeaderFields:httpHeaderFields];
 
         NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error != nil) {
@@ -85,30 +88,24 @@
     }
 }
 
-
 - (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey {
-    NSDictionary *queryComponents = [self buidRequestQueryWithDevKey:devKey appID:appId uid:uid];
-    NSURLComponents *quieryURLComponents = [[NSURLComponents alloc] init];
-    quieryURLComponents.scheme = @"https";
-    quieryURLComponents.host = @"skadsdkless.appsflyer.com";
-    quieryURLComponents.path = @"/api/v1.0/conversion-value";
+    NSURLComponents *queryURLComponents = [[NSURLComponents alloc] init];
     
-    if (queryComponents != nil) {
-        NSMutableArray *queryItems = [[NSMutableArray alloc] init];
-        for (NSString *key in queryComponents) {
-            id value = queryComponents[key];
-            if (value) {
-                [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:value]];
-            }
-        }
-        quieryURLComponents.queryItems = queryItems;
+    queryURLComponents.scheme = @"https";
+    queryURLComponents.host = @"skadsdkless.appsflyer.com";
+    queryURLComponents.path = @"/api/v1.0/conversion-value";
+    
+    if (uid != nil && appId != nil) {
+        NSURLQueryItem *uidItem = [[NSURLQueryItem alloc] initWithName:@"uid" value:uid];
+        NSURLQueryItem *appIdItem = [[NSURLQueryItem alloc] initWithName:@"app_id" value:appId];
+        queryURLComponents.queryItems = @[appIdItem, uidItem];
     }
 
-    return quieryURLComponents.URL;
+    return queryURLComponents.URL;
 }
 
 
-- (NSDictionary *)buidRequestQueryWithDevKey:(NSString *)devKey appID:(NSString *)appID uid:(NSString *)uid {
+- (NSDictionary *)buidRequestHeadersWithDevKey:(NSString *)devKey appID:(NSString *)appID uid:(NSString *)uid {
     if (!devKey && !appID && !uid) {
         return  nil;
     }
@@ -119,10 +116,9 @@
     
     NSString *hmacString = [self hmacForKey:devKey string:encryptableString];
     
-    return @{ @"af_timestamp" : currentTimeString,
-              @"af_sig" : hmacString,
-              @"uid" : uid,
-              @"app_id" : appID
+    return @{
+            @"Af-Timestamp" : currentTimeString,
+            @"Authorization" : hmacString,
             };
 }
 

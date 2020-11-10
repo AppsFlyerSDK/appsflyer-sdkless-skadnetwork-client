@@ -9,10 +9,12 @@
 @import XCTest;
 #import <AFSDKLessClient.h>
 #import <OHHTTPStubs/HTTPStubs.h>
+#import <OHHTTPStubs/HTTPStubsResponse+JSON.h>
 #import <OCMock/OCMock.h>
 
 @interface AFSDKLessClient()
 - (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey;
+- (NSDictionary *)buidRequestHeadersWithDevKey:(NSString *)devKey appID:(NSString *)appID uid:(NSString *)uid;
 @end
 
 @interface Tests : XCTestCase {
@@ -41,7 +43,7 @@
     
     NSURL *requestURL = [client buildRequestURLWithUID:@"test_uid_1" appId:@"test_appid_1" devKey:@"dev_key"];
     NSString *quiery = [requestURL query];
-    if ([quiery containsString:@"uid=test_uid_1&app_id=test_appid_1"]) {
+    if ([quiery isEqualToString:@"app_id=test_appid_1&uid=test_uid_1"]) {
         [exp fulfill];
     }
     [self waitForExpectationsWithTimeout:1 handler:nil];
