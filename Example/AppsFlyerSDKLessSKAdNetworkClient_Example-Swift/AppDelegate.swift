@@ -19,14 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let devKey = "YOUR_DEV_KEY";
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        AFSDKLessClient.shared.registerForAdNetworkAttribution()
         
-        AFSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
-            if let cv = cv?.intValue {
-                AFSDKLessClient.shared.updateConversionValue(cv)
-                AFSDKLessClient.shared.registerForAdNetworkAttribution()
-            }
+        if self.isDailyUpdateConversionWindowExpired() {
+            AFSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
                 
+                if let cv = cv?.intValue {
+                    AFSDKLessClient.shared.updateConversionValue(cv)
+                    UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
+                }
+            }
         }
+        
         if #available(iOS 13.0, *) {
             // Test with `e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"scheduleEventAF"]`
             BGTaskScheduler.shared.register(forTaskWithIdentifier: "scheduleEventAF", using: nil) { (task) in
@@ -44,13 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        AFSDKLessClient.shared.requestConversionValue(withUID: uid, devKey: devKey, appID: appId) { (conversion, error) in
-            if let cv = conversion?.intValue {
-                AFSDKLessClient.shared.updateConversionValue(cv)
-                AFSDKLessClient.shared.registerForAdNetworkAttribution()
-                completionHandler(.newData)
-            } else {
-                completionHandler(.failed)
+        if self.isDailyUpdateConversionWindowExpired() {
+            AFSDKLessClient.shared.requestConversionValue(withUID: uid, devKey: devKey, appID: appId) { (conversion, error) in
+                if let cv = conversion?.intValue {
+                    AFSDKLessClient.shared.updateConversionValue(cv)
+                    UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
+                    completionHandler(.newData)
+                } else {
+                    completionHandler(.failed)
+                }
             }
         }
     }
@@ -65,19 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+}
 
-    @available(iOS 13.0, *)
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+
+extension AppDelegate {
+    private func isDailyUpdateConversionWindowExpired() -> Bool {
+        // If there is no "kSDKLessWindow" value in UserDefaults, return true.
+        guard let date = UserDefaults.standard.value(forKey: "kSDKLessWindow") as? Date else { return true }
+        // If timeDiff == nil, that means, that `date` value is 'nil', return false
+        guard let timeDiff = Calendar.current.dateComponents([.hour], from: date, to: Date()).hour else { return false }
+        //If difference between current time and stored 'kSDKLessWindow' is more than 24 hours, return true
+        return timeDiff > 24
     }
-
-
 }
 
 @available(iOS 13.0, *)
@@ -107,17 +117,18 @@ extension AppDelegate {
             
             // Inform the system that the background task is complete
             // when the operation completes
-            operation.completionBlock = { [weak self] in
-                guard let self = self else { return }
-                AFSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
-                    if let cv = cv?.intValue {
-                        AFSDKLessClient.shared.updateConversionValue(cv)
-                        AFSDKLessClient.shared.registerForAdNetworkAttribution()
-                        task.setTaskCompleted(success: true)
-                    } else {
-                        task.setTaskCompleted(success: false)
+            operation.completionBlock = { [unowned self] in
+                if self.isDailyUpdateConversionWindowExpired() {
+                    AFSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
+                        if let cv = cv?.intValue {
+                            AFSDKLessClient.shared.updateConversionValue(cv)
+                            UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
+                            task.setTaskCompleted(success: true)
+                        } else {
+                            task.setTaskCompleted(success: false)
+                        }
+                            
                     }
-                        
                 }
             }
             

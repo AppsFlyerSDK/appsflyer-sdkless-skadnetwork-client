@@ -16,9 +16,20 @@ NSString *appId = @"YOUR_APP_ID"; //ID - is a string with following format @"id8
 NSString *devKey = @"YOUR_DEV_KEY";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[AFSDKLessClient shared] registerForAdNetworkAttribution];
+    
+    if ([self isDailyUpdateConversionWindowExpired]) {
+        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+            NSInteger conversion = [result intValue];
+            if (conversion) {
+                [[AFSDKLessClient shared] updateConversionValue:conversion];
+                [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
+            }
+        }];
+    }
+    
     if (@available(iOS 13, *)) {
-        // Test with `e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"scheduleEventAF"]`
-        [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:@"scheduleEventAF" usingQueue:dispatch_get_main_queue() launchHandler:^(__kindof BGTask * _Nonnull task) {
+        [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:@"scheduleEventAF" usingQueue: dispatch_get_main_queue() launchHandler:^(__kindof BGTask * _Nonnull task) {
             [self handleAppRefreshWith:task];
         }];
     }
@@ -31,16 +42,18 @@ NSString *devKey = @"YOUR_DEV_KEY";
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-        NSInteger conversion = [result intValue];
-        if (conversion) {
-            [[AFSDKLessClient shared] registerForAdNetworkAttribution];
-            [[AFSDKLessClient shared] updateConversionValue:conversion];
-            completionHandler(UIBackgroundFetchResultNewData);
-        } else {
-            completionHandler(UIBackgroundFetchResultNoData);
-        }
-    }];
+    if ([self isDailyUpdateConversionWindowExpired]) {
+        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+            NSInteger conversion = [result intValue];
+            if (conversion) {
+                [[AFSDKLessClient shared] updateConversionValue:conversion];
+                [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
+                completionHandler(UIBackgroundFetchResultNewData);
+            } else {
+                completionHandler(UIBackgroundFetchResultNoData);
+            }
+        }];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -60,16 +73,18 @@ NSString *devKey = @"YOUR_DEV_KEY";
     }];
     
     void (^completionBlock)(void) = ^{
-        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-            NSInteger conversion = [result intValue];
-            if (conversion) {
-                [[AFSDKLessClient shared] registerForAdNetworkAttribution];
-                [[AFSDKLessClient shared] updateConversionValue:conversion];
-                [task setTaskCompletedWithSuccess:YES];
-            } else {
-                [task setTaskCompletedWithSuccess:NO];
-            }
-        }];
+        if ([self isDailyUpdateConversionWindowExpired]) {
+            [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+                NSInteger conversion = [result intValue];
+                if (conversion) {
+                    [[AFSDKLessClient shared] updateConversionValue:conversion];
+                    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
+                    [task setTaskCompletedWithSuccess:YES];
+                } else {
+                    [task setTaskCompletedWithSuccess:NO];
+                }
+            }];
+        }
     };
     
     [operation setCompletionBlock:completionBlock];
@@ -86,6 +101,17 @@ NSString *devKey = @"YOUR_DEV_KEY";
     } else {
         return;
     }
+}
+
+- (BOOL)isDailyUpdateConversionWindowExpired {
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:@"kSDKLessWindow"];
+    // If there is no "kSDKLessWindow" value in UserDefaults, return true.
+    if (date == nil) {
+        return YES;
+    }
+    NSInteger diff = [[[NSCalendar currentCalendar] components:(NSCalendarUnitHour) fromDate:date toDate:[NSDate date] options:kNilOptions] hour];
+    //If difference between current time and stored 'kSDKLessWindow' is more than 24 hours, return true.
+    return diff > 24;
 }
 
 @end
