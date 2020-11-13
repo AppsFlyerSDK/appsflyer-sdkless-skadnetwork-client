@@ -31,7 +31,6 @@
     return shared;
 }
 
-
 - (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey appID:(NSString *)appID completionBlock:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionBlock {
     dispatch_async(sdkLessQueue, ^{
         NSURL *url = [self buildRequestURLWithUID:clientID appId:appID devKey:devKey];
@@ -61,7 +60,7 @@
                     return;
                 } else if (data) {
                     NSError *error;
-                    // Check for 'isKindOf: Class' in future.
+                    // TODO: add check for 'isKindOf: Class' in future.
                     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                     NSNumber *conversionValue = (NSNumber *)result[@"value"];
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -75,6 +74,30 @@
     });
 }
 
+- (void)requestConversionValueWithDevKey:(NSString *)devKey
+                                   appID:(NSString *)appID
+                         completionHandler:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionHandler {
+    
+    NSString *vendorID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];    
+    
+    if (![vendorID isEqualToString:@""] && vendorID != nil) {
+        [self requestConversionValueWithUID:vendorID devKey:devKey appID:appID completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+            if (error != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionHandler(nil, error);
+                    return;
+                });
+            }
+            
+            if (result) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionHandler(result, nil);
+                    return;
+                });
+            }
+        }];
+    }
+}
 
 - (void)registerForAdNetworkAttribution {
     if (@available(iOS 11.3, *)) {
@@ -88,6 +111,7 @@
     }
 }
 
+//Method builds request url with following parameters. If one of them is nil, returns url without query params.
 - (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey {
     NSURLComponents *queryURLComponents = [[NSURLComponents alloc] init];
     
@@ -104,7 +128,7 @@
     return queryURLComponents.URL;
 }
 
-
+//Returns NSDictionary, which parameters are used as request header fields.
 - (NSDictionary *)buidRequestHeadersWithDevKey:(NSString *)devKey appID:(NSString *)appID uid:(NSString *)uid {
     if (!devKey && !appID && !uid) {
         return  nil;
@@ -114,6 +138,7 @@
     NSString *currentTimeString = [NSString stringWithFormat:@"%.0f", currentTimeInSeconds];
     NSString *encryptableString = [NSString stringWithFormat:@"%.0f%@%@", currentTimeInSeconds, appID, uid];
     
+    //Dev key here is used as a secret key for HMAC-SHA256 encrypting algorythm
     NSString *hmacString = [self hmacForKey:devKey string:encryptableString];
     
     return @{
