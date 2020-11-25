@@ -134,7 +134,7 @@
         return  nil;
     }
     
-    NSTimeInterval currentTimeInSeconds = round([[NSDate date] timeIntervalSince1970]);
+    NSTimeInterval currentTimeInSeconds = round([[NSDate date] timeIntervalSince1970] * pow(10, -3));
     NSString *currentTimeString = [NSString stringWithFormat:@"%.0f", currentTimeInSeconds];
     NSString *encryptableString = [NSString stringWithFormat:@"%.0f%@%@", currentTimeInSeconds, appID, uid];
     
