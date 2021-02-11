@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsFlyerSDKLessSKAdNetworkClient'
-  s.version          = '0.1.0'
+  s.version          = '1.1.0'
   s.summary          = 'A short description of AppsFlyerSDKLessSKAdNetworkClient.'
   s.description      = 'iOS SDKLess + Sample App which demonstrates the usage of Appsflyer API - SKAdNetwork S2S get conversion value per user'
   s.homepage         = 'https://github.com/Ivan/AppsFlyerSDKLessSKAdNetworkClient'
