@@ -19,7 +19,7 @@ Key    |   Description
 ---            |   ---
 `uid`          |   appsflyer id
 `app_id`       |   application id
-`af_timestamp` |   current time in seconds
+`af_timestamp` |   current time in miliseconds
 `af_sig`       |   Create an HMAC SHA256 signature by concatenating the values of the timestamp, dev key, app id, and AppsFlyer id: `HmacSHA256(af_timestamp + DevKey + app_id + uid)`
 
 
