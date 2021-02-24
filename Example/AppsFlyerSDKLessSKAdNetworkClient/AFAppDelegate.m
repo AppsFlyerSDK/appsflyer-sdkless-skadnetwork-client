@@ -11,7 +11,7 @@
 #import <BackgroundTasks/BackgroundTasks.h>
 
 @implementation AFAppDelegate
-NSString *uid = @"YOUR_APPSFLYER_ID"; //[[AppsFlyerLib shared] getAppsFlyerUID]
+NSString *uid = @"YOUR_UNIQUE_ID";
 NSString *appId = @"YOUR_APP_ID"; //ID - is a string with following format @"id888707074"
 NSString *devKey = @"YOUR_DEV_KEY";
 

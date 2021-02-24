@@ -14,7 +14,7 @@ import BackgroundTasks
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow? 
-    private let uid = "YOUR_APPSFLYER_ID"; //AppsFlyerLib.shared().getAppsFlyerUID()
+    private let uid = "YOUR_UNIQUE_ID";
     private let appId = "YOUR_APP_ID"; //ID - is a string with following format @"idXXXXXXXX"
     private let devKey = "YOUR_DEV_KEY";
     
