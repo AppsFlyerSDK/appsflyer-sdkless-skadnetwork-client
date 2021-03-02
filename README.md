@@ -28,7 +28,7 @@ The HMAC is generated using SHA256 and uses the DevKey as the signature’s secr
 
 ##### Example:
 ```
-https://skadsdkless.appsflyer.com/api/v1.0/converison-value?uid=LYPnL-sdJuSwjg-AQ2GTZehc&app_id=123456789&af_sig=b457aca5d23a6cbe512775578201&af_timestamp=1603034622
+https://skadsdkless.appsflyer.com/api/v1.0/conversion-value?uid=LYPnL-sdJuSwjg-AQ2GTZehc&app_id=123456789&af_sig=b457aca5d23a6cbe512775578201&af_timestamp=1603034622
 ```
 SK API will return the following *conversion value* response as JSON:
 ```
