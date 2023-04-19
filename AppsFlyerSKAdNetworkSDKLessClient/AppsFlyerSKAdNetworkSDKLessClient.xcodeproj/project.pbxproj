@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC07DB2929EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */; };
+		FC07DB2A29EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCFD39D429EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */; };
+		FCFD39D929EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFD39D829EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCFD39D529EFF7C800560E82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCFD39C229EFF7C700560E82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCFD39CA29EFF7C700560E82;
+			remoteInfo = AppsFlyerSKAdNetworkSDKLessClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClient.m; sourceTree = "<group>"; };
+		FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsFlyerSKAdNetworkSDKLessClient.h; sourceTree = "<group>"; };
+		FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppsFlyerSKAdNetworkSDKLessClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFD39D329EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppsFlyerSKAdNetworkSDKLessClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFD39D829EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClientTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCFD39C829EFF7C700560E82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFD39D029EFF7C800560E82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFD39D429EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCFD39C129EFF7C700560E82 = {
+			isa = PBXGroup;
+			children = (
+				FCFD39CD29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient */,
+				FCFD39D729EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests */,
+				FCFD39CC29EFF7C800560E82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCFD39CC29EFF7C800560E82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */,
+				FCFD39D329EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCFD39CD29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient */ = {
+			isa = PBXGroup;
+			children = (
+				FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */,
+				FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */,
+			);
+			path = AppsFlyerSKAdNetworkSDKLessClient;
+			sourceTree = "<group>";
+		};
+		FCFD39D729EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCFD39D829EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m */,
+			);
+			path = AppsFlyerSKAdNetworkSDKLessClientTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FCFD39C629EFF7C700560E82 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC07DB2A29EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FCFD39CA29EFF7C700560E82 /* AppsFlyerSKAdNetworkSDKLessClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFD39DD29EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClient" */;
+			buildPhases = (
+				FCFD39C629EFF7C700560E82 /* Headers */,
+				FCFD39C729EFF7C700560E82 /* Sources */,
+				FCFD39C829EFF7C700560E82 /* Frameworks */,
+				FCFD39C929EFF7C700560E82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppsFlyerSKAdNetworkSDKLessClient;
+			productName = AppsFlyerSKAdNetworkSDKLessClient;
+			productReference = FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FCFD39D229EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFD39E029EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClientTests" */;
+			buildPhases = (
+				FCFD39CF29EFF7C800560E82 /* Sources */,
+				FCFD39D029EFF7C800560E82 /* Frameworks */,
+				FCFD39D129EFF7C800560E82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCFD39D629EFF7C800560E82 /* PBXTargetDependency */,
+			);
+			name = AppsFlyerSKAdNetworkSDKLessClientTests;
+			productName = AppsFlyerSKAdNetworkSDKLessClientTests;
+			productReference = FCFD39D329EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCFD39C229EFF7C700560E82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FCFD39CA29EFF7C700560E82 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					FCFD39D229EFF7C800560E82 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = FCFD39C529EFF7C700560E82 /* Build configuration list for PBXProject "AppsFlyerSKAdNetworkSDKLessClient" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCFD39C129EFF7C700560E82;
+			productRefGroup = FCFD39CC29EFF7C800560E82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCFD39CA29EFF7C700560E82 /* AppsFlyerSKAdNetworkSDKLessClient */,
+				FCFD39D229EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCFD39C929EFF7C700560E82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFD39D129EFF7C800560E82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCFD39C729EFF7C700560E82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC07DB2929EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFD39CF29EFF7C800560E82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCFD39D929EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCFD39D629EFF7C800560E82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCFD39CA29EFF7C700560E82 /* AppsFlyerSKAdNetworkSDKLessClient */;
+			targetProxy = FCFD39D529EFF7C800560E82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FCFD39DB29EFF7C800560E82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FCFD39DC29EFF7C800560E82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FCFD39DE29EFF7C800560E82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/AppsFlyerSKAdNetworkSDKLessClient",
+					"$(inherited)",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.AppsFlyerSKAdNetworkSDKLessClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCFD39DF29EFF7C800560E82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/AppsFlyerSKAdNetworkSDKLessClient",
+					"$(inherited)",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.AppsFlyerSKAdNetworkSDKLessClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FCFD39E129EFF7C800560E82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.AppsFlyerSKAdNetworkSDKLessClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCFD39E229EFF7C800560E82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = 6UQAD4B3U2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.AppsFlyerSKAdNetworkSDKLessClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCFD39C529EFF7C700560E82 /* Build configuration list for PBXProject "AppsFlyerSKAdNetworkSDKLessClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFD39DB29EFF7C800560E82 /* Debug */,
+				FCFD39DC29EFF7C800560E82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFD39DD29EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFD39DE29EFF7C800560E82 /* Debug */,
+				FCFD39DF29EFF7C800560E82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFD39E029EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFD39E129EFF7C800560E82 /* Debug */,
+				FCFD39E229EFF7C800560E82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCFD39C229EFF7C700560E82 /* Project object */;
+}

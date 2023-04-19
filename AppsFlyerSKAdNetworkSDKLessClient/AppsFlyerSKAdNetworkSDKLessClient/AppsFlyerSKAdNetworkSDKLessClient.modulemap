@@ -1,0 +1,7 @@
+framework module PurchaseConnector {
+    umbrella header "AppsFlyerSKAdNetworkSDKLessClient.h"
+
+    export *
+    module * { export * }
+}
+

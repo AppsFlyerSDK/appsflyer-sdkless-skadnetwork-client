@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.author           = { 'Ivan' => 'ivan.obodovskyi@appsflyer.com' }
   s.source           = { :git => 'https://github.com/AppsFlyerSDK/appsflyer-sdkless-skadnetwork-client.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
-  s.source_files = 'AppsFlyerSDKLessSKAdNetworkClient/Classes/**/*'
+  s.source_files = 'AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient/**/*'
 
 end
