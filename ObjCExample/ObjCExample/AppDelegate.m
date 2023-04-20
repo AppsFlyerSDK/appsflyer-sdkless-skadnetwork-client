@@ -115,6 +115,9 @@ NSString *devKey = @"YOUR_DEV_KEY";
     return diff > 24;
 }
 
+// This method contains all available SKAN upcv API usage examples.
+// Please, choose one, depending on your expected postback version + iOS version, according to the Apple SKAdNetwork doc
+// These methods are basically SKAdNetwork API wrappers, you can call Apple API directly.
 - (void)updateSKANConversionWith:(SDKLessS2SMessage*)message {
     // Example for iOS 16.1 version may also contain `lockWindow` parameter
     [[AppsFlyerSKAdNetworkSDKLessClient shared] updatePostbackConversionValue:message.conversionValue coarseValue:[message getCoarseValueRepresentation] completionHandler:^(NSError * _Nullable error) {
