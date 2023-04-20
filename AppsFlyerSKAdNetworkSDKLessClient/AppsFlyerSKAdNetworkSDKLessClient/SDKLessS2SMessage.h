@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <StoreKit/SKAdNetwork.h>
 
 
 typedef enum AFSDKSKANMode: NSUInteger {
@@ -17,8 +18,8 @@ typedef enum AFSDKSKANMode: NSUInteger {
 
 @property (nonatomic, readonly, strong, nullable) NSString *coarseValue;
 @property (nonatomic, readonly, strong, nullable) NSString *message;
-@property (nonatomic, readonly, assign) int32_t conversionValue;
-@property (nonatomic, readonly, assign) int32_t postbackSequenceIndex;
+@property (nonatomic, readonly, assign) int conversionValue;
+@property (nonatomic, readonly, assign) int postbackSequenceIndex;
 @property (nonatomic, readonly, assign) BOOL lockWindow;
 @property (nonatomic, readonly, assign) NSTimeInterval nextWindowTime;
 

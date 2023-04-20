@@ -7,30 +7,218 @@
 
 #import <XCTest/XCTest.h>
 #import "AppsFlyerSKAdNetworkSDKLessClient.h"
+#import <HTTPStubs.h>
+
+@interface AppsFlyerSKAdNetworkSDKLessClient()
+
+- (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey;
+- (NSDictionary *)buidRequestHeadersWithDevKey:(NSString *)devKey appID:(NSString *)appID uid:(NSString *)uid;
+
+@end
+
 
 @interface AppsFlyerSKAdNetworkSDKLessClientTests : XCTestCase
 
 @end
 
-@implementation AppsFlyerSKAdNetworkSDKLessClientTests
-
+@implementation AppsFlyerSKAdNetworkSDKLessClientTests {
+    XCTestExpectation *exp;
+    id client;
+}
 - (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    exp = [self expectationWithDescription:@""];
+    client = [AppsFlyerSKAdNetworkSDKLessClient shared];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    exp = nil;
+    client = nil;
 }
 
-- (void)testExample {
-    XCTAssertTrue(YES);
+- (void)test_build_url {
+    NSURL *requestURL = [client buildRequestURLWithUID:@"test_uid_1" appId:@"test_appid_1" devKey:@"dev_key"];
+    NSString *quiery = [requestURL query];
+    if ([quiery isEqualToString:@"app_id=test_appid_1&uid=test_uid_1&sdk_version=sdk_less"]) {
+        [exp fulfill];
+    }
+    [self waitForExpectationsWithTimeout:1 handler:nil];
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+- (void)test_url_query_nil {
+    NSString *nilUID = nil;
+    NSString *nilAppID = nil;
+    NSURL *requestURL = [client buildRequestURLWithUID:nilUID appId:nilAppID devKey:nil];
+    NSString *query = [requestURL query];
+    if (query == nil) {
+        [exp fulfill];
+    }
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+
+- (void)test_request_ok{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{@"value":@1} statusCode:200]];
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (result.conversionValue == 1) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_no_responce {
+    [self stubRequestForTesting:[self responseErrorWithDomain:@"domian" statusCode:400 userInfo:nil]];
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if ([error.domain isEqualToString:@"domian"] && error.code == 400) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_error_400{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:400]];
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage* _Nullable result, NSError * _Nullable error) {
+        if (error.code == 400 && [error.domain isEqualToString:@"Invalid request (params or headers missing or malformed)."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_error_401{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:401]];
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 401 && [error.domain isEqualToString:@"Invalid signature."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_error_404{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:404]];
+    
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 404 && [error.domain isEqualToString:@"UID not found/expired."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_error_503{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:503]];
+    
+    [client requestConversionValueWithUID:@"uid" devKey:@"devKey" appID:@"00099922" completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 503 && [error.domain isEqualToString:@"Server busy"]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_vendor_request_200 {
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{@"value":@1} statusCode:200]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if ([result conversionValue]) {
+            [exp fulfill];
+        }
+    }];
+     
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_vendor_request_no_responce {
+    [self stubRequestForTesting:[self responseErrorWithDomain:@"domain" statusCode:400 userInfo:nil]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if ([error.domain isEqualToString:@"domain"] && error.code == 400) {
+            [exp fulfill];
+        }
+    }];
+
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_vendor_id_error_400{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:400]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 400 && [error.domain isEqualToString:@"Invalid request (params or headers missing or malformed)."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_vendor_error_401{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:401]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 401 && [error.domain isEqualToString:@"Invalid signature."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_vendor_error_404{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:404]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 404 && [error.domain isEqualToString:@"UID not found/expired."]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)test_request_vendor_error_503{
+    [self stubRequestForTesting:[self responseMockWithJSONObject:@{} statusCode:503]];
+    
+    [client requestConversionValueWithDevKey:@"dev_key" appID:@"app_id" completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+        if (error.code == 503 && [error.domain isEqualToString:@"Server busy"]) {
+            [exp fulfill];
+        }
+    }];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+- (void)stubRequestForTesting:(HTTPStubsResponse *)response {
+   [HTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
+        return [request.URL.host isEqual:@"skadsdkless.appsflyer.com"];
+    } withStubResponse:^HTTPStubsResponse * _Nonnull(NSURLRequest * _Nonnull request) {
+        return response;
     }];
 }
+
+- (HTTPStubsResponse *)responseMockWithJSONObject:(NSDictionary *)dictionary statusCode:(int)statusCode {
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary options:kNilOptions error:&error];
+    return [HTTPStubsResponse responseWithData:data statusCode:statusCode headers:nil];
+}
+
+- (HTTPStubsResponse *)responseErrorWithDomain:(NSString *)domain statusCode:(int)statusCode userInfo:(NSDictionary<NSErrorUserInfoKey, id> *)dict {
+    NSError *error = [NSError errorWithDomain:domain code:statusCode userInfo:dict];
+    return [HTTPStubsResponse responseWithError:error];
+}
+
 
 @end

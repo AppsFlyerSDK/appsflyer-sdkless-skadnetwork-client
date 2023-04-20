@@ -10,4 +10,7 @@
    <FileRef
       location = "group:AppsFlyerSKAdNetworkSDKLessClient/AppsFlyerSKAdNetworkSDKLessClient.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:AppsFlyerSKAdNetworkSDKLessClient/Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -21,15 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerSKAdNetworkSDKLessClient.shared.registerForAdNetworkAttribution()
         
         if self.isDailyUpdateConversionWindowExpired() {
-            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (result, error) in
+            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid,
+                                                                            devKey: self.devKey,
+                                                                            appID: self.appId) { (result, error) in
                 if error != nil {
                     print(error?.localizedDescription)
                 }
                 
-//                if let cv = cv?.intValue {
-//                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
-//                    UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
-//                }
+                if let result = result {
+                    AppsFlyerSKAdNetworkSDKLessClient.shared.updatePostbackConversionValue(result.conversionValue, coarseValue: result.getCoarseValueRepresentation()) { skanErr in
+                        printContent("SKAN Err: \(skanErr.localizedDescription)")
+                    }
+                }
+                
+                
             }
         }
         
