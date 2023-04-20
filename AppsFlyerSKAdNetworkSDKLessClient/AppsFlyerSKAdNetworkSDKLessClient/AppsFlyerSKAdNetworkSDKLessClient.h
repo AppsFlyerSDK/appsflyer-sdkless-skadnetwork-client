@@ -7,6 +7,7 @@
 
 
 #import <AppsFlyerSKAdNetworkSDKLessClient/SDKLessS2SMessage.h>
+#import <StoreKit/SKAdNetwork.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,12 +25,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerForAdNetworkAttribution;
 
 /*!
-    @brief AFSDKLessClient wrapper for `[SKAdNetwork updateConversionValue:]`
+    @brief AFSDKLessClient wrapper for `[SKAdNetwork updateConversionPostbackConversionValue:] methods`
     @param conversionValue  conversion value to update.
  
-    @discussion See the doc: https://developer.apple.com/documentation/storekit/skadnetwork/3566697-updateconversionvalue?language=objc
+    @discussion See the doc: https://developer.apple.com/documentation/storekit/skadnetwork
  */
 - (void)updateConversionValue:(NSInteger)conversionValue;
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler;
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0));
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0));
 
 /*!
     @brief Perform request for conversion value using Vendor Identifier instead of

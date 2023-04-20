@@ -5,7 +5,7 @@
 //  Created by Ivan Obodovskyi on 02.11.2020.
 //
 
-#import <StoreKit/SKAdNetwork.h>
+
 #import <CommonCrypto/CommonHMAC.h>
 #import <UIKit/UIKit.h>
 
@@ -63,12 +63,13 @@
                     return;
                 } else if (data) {
                     NSError *error;
-                    // TODO: add check for 'isKindOf: Class' in future.
                     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                    SDKLessS2SMessage *s2sMessage = [[SDKLessS2SMessage alloc] initWithMessage:result];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionBlock(s2sMessage, error);
-                    });
+                    if (result != nil && [result isKindOfClass:[NSDictionary class]]) {
+                        SDKLessS2SMessage *s2sMessage = [[SDKLessS2SMessage alloc] initWithMessage:result];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionBlock(s2sMessage, error);
+                        });
+                    }
                     return;
                 }
             }
@@ -103,8 +104,23 @@
 }
 
 - (void)registerForAdNetworkAttribution {
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:0 coarseValue:SKAdNetworkCoarseConversionValueHigh completionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }];
+        return;
+    }
+    
+    if (@available(iOS 15.4, *)) {
+        [SKAdNetwork updatePostbackConversionValue:0 completionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }];
+        return;
+    }
+    
     if (@available(iOS 11.3, *)) {
         [SKAdNetwork registerAppForAdNetworkAttribution];
+        return;
     }
 }
 
@@ -113,6 +129,42 @@
         [SKAdNetwork updateConversionValue:converionValue];
     }
 }
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler {
+    if (@available(iOS 15.4, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0)){
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue
+                                       coarseValue:coarseValue
+                                 completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler {
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue
+                                       coarseValue:coarseValue
+                                        lockWindow:lockWindow
+                                 completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
 
 //Method builds request url with following parameters. If one of them is nil, returns url without query params.
 - (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey {

@@ -120,6 +120,7 @@ extension AppDelegate {
                 if self.isDailyUpdateConversionWindowExpired() {
                     AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (result, error) in
                         if let result = result {
+                            
 //                            AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
                             UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
                             task.setTaskCompleted(success: true)
