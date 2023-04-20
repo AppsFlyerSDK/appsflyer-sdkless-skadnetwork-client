@@ -29,19 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 if let result = result {
-                    AppsFlyerSKAdNetworkSDKLessClient.shared.updatePostbackConversionValue(result.conversionValue, coarseValue: result.getCoarseValueRepresentation()) { skanErr in
-                        printContent("SKAN Err: \(skanErr.localizedDescription)")
-                    }
+                    self.updateSKANConversion(with: result)
                 }
-                
-                
             }
         }
         
         if #available(iOS 13.0, *) {
             // Test with `e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"scheduleEventAF"]`
             BGTaskScheduler.shared.register(forTaskWithIdentifier: "scheduleEventAF", using: nil) { (task) in
-                    self.handleAppRefresh(task: task as! BGAppRefreshTask)
+                self.handleAppRefresh(task: task as! BGAppRefreshTask)
             }
         }
            
@@ -58,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if self.isDailyUpdateConversionWindowExpired() {
             AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: uid, devKey: devKey, appID: appId) { (result, error) in
                 if let result = result {
-//                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
+                    self.updateSKANConversion(with: result)
                     UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
                     completionHandler(.newData)
                 } else {
@@ -125,8 +121,7 @@ extension AppDelegate {
                 if self.isDailyUpdateConversionWindowExpired() {
                     AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (result, error) in
                         if let result = result {
-                            
-//                            AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
+                            updateSKANConversion(with: result)
                             UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
                             task.setTaskCompleted(success: true)
                         } else {
@@ -140,4 +135,24 @@ extension AppDelegate {
             // Start the operation
             OperationQueue.main.addOperation(operation)
         }
+    
+    
+    // This method contains all available SKAN upcv API usage examples.
+    // Please, choose one, depending on your expected postback version + iOS version, according to the Apple SKAdNetwork doc
+    // These methods are basically SKAdNetwork API wrappers, you can call Apple API directly.
+    func updateSKANConversion(with message: SDKLessS2SMessage) {
+        // Example for iOS 16.1 version may also contain `lockWindow` parameter
+        AppsFlyerSKAdNetworkSDKLessClient.shared.updatePostbackConversionValue(Int(message.conversionValue), coarseValue: message.getCoarseValueRepresentation()) { skanErr in
+            print("SKAN Err: \(skanErr?.localizedDescription)")
+        }
+        
+        // Example for iOS 15.5 version
+        AppsFlyerSKAdNetworkSDKLessClient.shared.updatePostbackConversionValue(Int(message.conversionValue)) { skanErr in
+            print("SKAN Err: \(skanErr?.localizedDescription)")
+        }
+        
+        // Example for iOS 11.3 and higher
+        AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(Int(message.conversionValue))
+    }
 }
+

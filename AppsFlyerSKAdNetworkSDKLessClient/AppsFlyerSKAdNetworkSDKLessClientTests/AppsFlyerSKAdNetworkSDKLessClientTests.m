@@ -64,7 +64,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (result.conversionValue == 1 && [result configMode] == AFSDKSKANModeDefault) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -91,7 +91,7 @@
             [result configMode] == AFSDKSKANModeV4 &&
             [[result coarseValue] isEqualToString: @"high"] &&
             [result postbackSequenceIndex] == 2) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -106,7 +106,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if ([error.domain isEqualToString:@"domian"] && error.code == 400) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -121,7 +121,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage* _Nullable result, NSError * _Nullable error) {
         if (error.code == 400 && [error.domain isEqualToString:@"Invalid request (params or headers missing or malformed)."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -136,7 +136,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 401 && [error.domain isEqualToString:@"Invalid signature."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -151,7 +151,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 404 && [error.domain isEqualToString:@"UID not found/expired."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -166,7 +166,7 @@
                                     appID:@"00099922"
                           completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 503 && [error.domain isEqualToString:@"Server busy"]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -180,7 +180,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if ([result conversionValue]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
      
@@ -194,7 +194,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if ([error.domain isEqualToString:@"domain"] && error.code == 400) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
 
@@ -208,7 +208,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 400 && [error.domain isEqualToString:@"Invalid request (params or headers missing or malformed)."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -222,7 +222,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 401 && [error.domain isEqualToString:@"Invalid signature."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -236,7 +236,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 404 && [error.domain isEqualToString:@"UID not found/expired."]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     
@@ -250,7 +250,7 @@
                                        appID:@"app_id"
                            completionHandler:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
         if (error.code == 503 && [error.domain isEqualToString:@"Server busy"]) {
-            [exp fulfill];
+            [self->exp fulfill];
         }
     }];
     

@@ -20,19 +20,15 @@ NSString *devKey = @"YOUR_DEV_KEY";
     
     if ([self isDailyUpdateConversionWindowExpired]) {
         [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
+            
             if (result) {
-                // UPCV here
+                [self updateSKANConversionWith:result];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
             }
         }];
-//        [AppsFlyerSKAdNetworkSDKLessClient shared] req
-//        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
-//            NSInteger conversion = [result intValue];
-//            if (conversion) {
-//                [[AppsFlyerSKAdNetworkSDKLessClient shared] updateConversionValue:conversion];
-//                [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
-//            }
-//        }];
     }
     
     if (@available(iOS 13, *)) {
@@ -52,7 +48,7 @@ NSString *devKey = @"YOUR_DEV_KEY";
     if ([self isDailyUpdateConversionWindowExpired]) {
         [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
             if (result) {
-                // UPCV here
+                [self updateSKANConversionWith:result];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                 completionHandler(UIBackgroundFetchResultNewData);
             } else {
@@ -82,7 +78,7 @@ NSString *devKey = @"YOUR_DEV_KEY";
         if ([self isDailyUpdateConversionWindowExpired]) {
             [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
                 if (result) {
-                    // UPCV here
+                    [self updateSKANConversionWith:result];
                     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                     [task setTaskCompletedWithSuccess:YES];
                 } else {
@@ -117,6 +113,21 @@ NSString *devKey = @"YOUR_DEV_KEY";
     NSInteger diff = [[[NSCalendar currentCalendar] components:(NSCalendarUnitHour) fromDate:date toDate:[NSDate date] options:kNilOptions] hour];
     //If difference between current time and stored 'kSDKLessWindow' is more than 24 hours, return true.
     return diff > 24;
+}
+
+- (void)updateSKANConversionWith:(SDKLessS2SMessage*)message {
+    // Example for iOS 16.1 version may also contain `lockWindow` parameter
+    [[AppsFlyerSKAdNetworkSDKLessClient shared] updatePostbackConversionValue:message.conversionValue coarseValue:[message getCoarseValueRepresentation] completionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+    
+    // Example for iOS 15.5 version
+    [[AppsFlyerSKAdNetworkSDKLessClient shared] updatePostbackConversionValue:message.conversionValue completionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+
+    // Example for iOS 11.3 and higher
+    [[AppsFlyerSKAdNetworkSDKLessClient shared] updateConversionValue:message.conversionValue];
 }
 
 @end

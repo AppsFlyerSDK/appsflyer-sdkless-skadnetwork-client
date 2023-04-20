@@ -27,7 +27,7 @@ typedef enum AFSDKSKANMode: NSUInteger {
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithMessage:(NSDictionary *)message NS_DESIGNATED_INITIALIZER;
 
-- (NSString * __nullable)getCoarseValueRepresentation;
+- (SKAdNetworkCoarseConversionValue)getCoarseValueRepresentation API_AVAILABLE(ios(16.0));
 - (BOOL)shouldStopS2STimer;
 - (NSString *)stringifiedRepresentation;
 - (AFSDKSKANMode)configMode;
