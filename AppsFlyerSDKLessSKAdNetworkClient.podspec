@@ -7,6 +7,7 @@
 #
 
 Pod::Spec.new do |s|
+  
   s.name             = 'AppsFlyerSDKLessSKAdNetworkClient'
   s.version          = '1.1.0'
   s.summary          = 'A short description of AppsFlyerSDKLessSKAdNetworkClient.'

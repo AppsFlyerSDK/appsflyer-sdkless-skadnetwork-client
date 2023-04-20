@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC07DB2929EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */; };
-		FC07DB2A29EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCCE70BF29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCE70BB29F14B1A00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m */; };
+		FCCE70C029F14B1B00A6332B /* SDKLessS2SMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCE70BC29F14B1B00A6332B /* SDKLessS2SMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCCE70C129F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCE70BD29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCCE70C229F14B1B00A6332B /* SDKLessS2SMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCE70BE29F14B1B00A6332B /* SDKLessS2SMessage.m */; };
 		FCFD39D429EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */; };
 		FCFD39D929EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFD39D829EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m */; };
 /* End PBXBuildFile section */
@@ -24,8 +26,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClient.m; sourceTree = "<group>"; };
-		FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsFlyerSKAdNetworkSDKLessClient.h; sourceTree = "<group>"; };
+		FCCE70BB29F14B1A00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClient.m; sourceTree = "<group>"; };
+		FCCE70BC29F14B1B00A6332B /* SDKLessS2SMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKLessS2SMessage.h; sourceTree = "<group>"; };
+		FCCE70BD29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsFlyerSKAdNetworkSDKLessClient.h; sourceTree = "<group>"; };
+		FCCE70BE29F14B1B00A6332B /* SDKLessS2SMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKLessS2SMessage.m; sourceTree = "<group>"; };
 		FCFD39CB29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppsFlyerSKAdNetworkSDKLessClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFD39D329EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppsFlyerSKAdNetworkSDKLessClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFD39D829EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClientTests.m; sourceTree = "<group>"; };
@@ -71,8 +75,10 @@
 		FCFD39CD29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient */ = {
 			isa = PBXGroup;
 			children = (
-				FC07DB2829EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h */,
-				FC07DB2729EFF94500ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m */,
+				FCCE70BD29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h */,
+				FCCE70BB29F14B1A00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m */,
+				FCCE70BC29F14B1B00A6332B /* SDKLessS2SMessage.h */,
+				FCCE70BE29F14B1B00A6332B /* SDKLessS2SMessage.m */,
 			);
 			path = AppsFlyerSKAdNetworkSDKLessClient;
 			sourceTree = "<group>";
@@ -92,7 +98,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC07DB2A29EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */,
+				FCCE70C129F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */,
+				FCCE70C029F14B1B00A6332B /* SDKLessS2SMessage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC07DB2929EFF94600ED3F53 /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */,
+				FCCE70C229F14B1B00A6332B /* SDKLessS2SMessage.m in Sources */,
+				FCCE70BF29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +365,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				MODULEMAP_FILE = "";
+				MODULEMAP_FILE = "$(SRCROOT)/AppsFlyerSKAdNetworkSDKLessClient/AppsFlyerSKAdNetworkSDKLessClient.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -394,7 +402,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				MODULEMAP_FILE = "";
+				MODULEMAP_FILE = "$(SRCROOT)/AppsFlyerSKAdNetworkSDKLessClient/AppsFlyerSKAdNetworkSDKLessClient.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				OTHER_LDFLAGS = "$(inherited)";

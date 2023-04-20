@@ -12,6 +12,7 @@
 #import "AppsFlyerSKAdNetworkSDKLessClient.h"
 
 
+
 @implementation AppsFlyerSKAdNetworkSDKLessClient {
     dispatch_queue_t sdkLessQueue;
 }
@@ -33,7 +34,7 @@
     return shared;
 }
 
-- (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey appID:(NSString *)appID completionBlock:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionBlock {
+- (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey appID:(NSString *)appID completionBlock:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionBlock {
     dispatch_async(sdkLessQueue, ^{
         NSURL *url = [self buildRequestURLWithUID:clientID appId:appID devKey:devKey];
         
@@ -64,9 +65,9 @@
                     NSError *error;
                     // TODO: add check for 'isKindOf: Class' in future.
                     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                    NSNumber *conversionValue = (NSNumber *)result[@"value"];
+                    SDKLessS2SMessage *s2sMessage = [[SDKLessS2SMessage alloc] initWithMessage:result];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        completionBlock(conversionValue, error);
+                        completionBlock(s2sMessage, error);
                     });
                     return;
                 }
@@ -78,12 +79,12 @@
 
 - (void)requestConversionValueWithDevKey:(NSString *)devKey
                                    appID:(NSString *)appID
-                         completionHandler:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionHandler {
+                         completionHandler:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionHandler {
     
     NSString *vendorID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];    
     
     if (![vendorID isEqualToString:@""] && vendorID != nil) {
-        [self requestConversionValueWithUID:vendorID devKey:devKey appID:appID completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+        [self requestConversionValueWithUID:vendorID devKey:devKey appID:appID completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
             if (error != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completionHandler(nil, error);
@@ -119,7 +120,7 @@
     
     queryURLComponents.scheme = @"https";
     queryURLComponents.host = @"skadsdkless.appsflyer.com";
-    queryURLComponents.path = @"/api/v1.0/conversion-value";
+    queryURLComponents.path = @"/api/v2.0/conversion-value";
     
     if (uid != nil && appId != nil) {
         NSURLQueryItem *uidItem = [[NSURLQueryItem alloc] initWithName:@"uid" value:uid];

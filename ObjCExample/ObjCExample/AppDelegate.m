@@ -10,7 +10,6 @@
 #import <AppsFlyerSKAdNetworkSDKLessClient/AppsFlyerSKAdNetworkSDKLessClient.h>
 #import <BackgroundTasks/BackgroundTasks.h>
 
-
 @implementation AppDelegate
 NSString *uid = @"YOUR_UNIQUE_ID";
 NSString *appId = @"YOUR_APP_ID"; //ID - is a string with following format @"id888707074"
@@ -20,13 +19,20 @@ NSString *devKey = @"YOUR_DEV_KEY";
     [[AppsFlyerSKAdNetworkSDKLessClient shared] registerForAdNetworkAttribution];
     
     if ([self isDailyUpdateConversionWindowExpired]) {
-        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-            NSInteger conversion = [result intValue];
-            if (conversion) {
-                [[AppsFlyerSKAdNetworkSDKLessClient shared] updateConversionValue:conversion];
+        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+            if (result) {
+                // UPCV here
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
             }
         }];
+//        [AppsFlyerSKAdNetworkSDKLessClient shared] req
+//        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+//            NSInteger conversion = [result intValue];
+//            if (conversion) {
+//                [[AppsFlyerSKAdNetworkSDKLessClient shared] updateConversionValue:conversion];
+//                [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
+//            }
+//        }];
     }
     
     if (@available(iOS 13, *)) {
@@ -44,10 +50,9 @@ NSString *devKey = @"YOUR_DEV_KEY";
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     if ([self isDailyUpdateConversionWindowExpired]) {
-        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-            NSInteger conversion = [result intValue];
-            if (conversion) {
-                [[AppsFlyerSKAdNetworkSDKLessClient shared] updateConversionValue:conversion];
+        [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+            if (result) {
+                // UPCV here
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                 completionHandler(UIBackgroundFetchResultNewData);
             } else {
@@ -75,10 +80,9 @@ NSString *devKey = @"YOUR_DEV_KEY";
     
     void (^completionBlock)(void) = ^{
         if ([self isDailyUpdateConversionWindowExpired]) {
-            [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-                NSInteger conversion = [result intValue];
-                if (conversion) {
-                    [[AppsFlyerSKAdNetworkSDKLessClient  shared] updateConversionValue:conversion];
+            [[AppsFlyerSKAdNetworkSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+                if (result) {
+                    // UPCV here
                     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                     [task setTaskCompletedWithSuccess:YES];
                 } else {

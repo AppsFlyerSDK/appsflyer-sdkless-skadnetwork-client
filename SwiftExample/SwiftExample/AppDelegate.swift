@@ -21,15 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerSKAdNetworkSDKLessClient.shared.registerForAdNetworkAttribution()
         
         if self.isDailyUpdateConversionWindowExpired() {
-            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
+            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (result, error) in
                 if error != nil {
                     print(error?.localizedDescription)
                 }
                 
-                if let cv = cv?.intValue {
-                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
-                    UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
-                }
+//                if let cv = cv?.intValue {
+//                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
+//                    UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
+//                }
             }
         }
         
@@ -51,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if self.isDailyUpdateConversionWindowExpired() {
-            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: uid, devKey: devKey, appID: appId) { (conversion, error) in
-                if let cv = conversion?.intValue {
-                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
+            AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: uid, devKey: devKey, appID: appId) { (result, error) in
+                if let result = result {
+//                    AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
                     UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
                     completionHandler(.newData)
                 } else {
@@ -118,9 +118,9 @@ extension AppDelegate {
             // when the operation completes
             operation.completionBlock = { [unowned self] in
                 if self.isDailyUpdateConversionWindowExpired() {
-                    AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (cv, error) in
-                        if let cv = cv?.intValue {
-                            AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
+                    AppsFlyerSKAdNetworkSDKLessClient.shared.requestConversionValue(withUID: self.uid, devKey: self.devKey, appID: self.appId) { (result, error) in
+                        if let result = result {
+//                            AppsFlyerSKAdNetworkSDKLessClient.shared.updateConversionValue(cv)
                             UserDefaults.standard.setValue(Date(), forKey: "kSDKLessWindow")
                             task.setTaskCompleted(success: true)
                         } else {

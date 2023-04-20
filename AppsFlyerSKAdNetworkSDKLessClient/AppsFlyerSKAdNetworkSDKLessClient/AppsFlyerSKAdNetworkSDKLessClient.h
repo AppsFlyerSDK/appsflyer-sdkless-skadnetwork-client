@@ -5,9 +5,11 @@
 //  Created by Ivan Obodovskyi on 02.11.2020.
 //
 
-#import <Foundation/Foundation.h>
+
+#import <AppsFlyerSKAdNetworkSDKLessClient/SDKLessS2SMessage.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
 
 @interface AppsFlyerSKAdNetworkSDKLessClient : NSObject
 
@@ -40,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)requestConversionValueWithDevKey:(NSString *)devKey
                                    appID:(NSString *)appID
-                       completionHandler:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionHandler;
+                       completionHandler:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionHandler;
 
 /*!
     @param devKey your AppsFlyer devKey.
@@ -50,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey
                                 appID:(NSString *)appID
-                      completionBlock:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionBlock;
+                      completionBlock:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionBlock;
 
 
 @end

@@ -6,7 +6,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <AppsFlyerSKAdNetworkSDKLessClient/AFSDKLessClient.h>
+#import "AppsFlyerSKAdNetworkSDKLessClient.h"
 
 @interface AppsFlyerSKAdNetworkSDKLessClientTests : XCTestCase
 

@@ -13,8 +13,23 @@
 		FC4C03EF29EFFC3600CB5793 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4C03ED29EFFC3600CB5793 /* Main.storyboard */; };
 		FC4C03F129EFFC3800CB5793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4C03F029EFFC3800CB5793 /* Assets.xcassets */; };
 		FC4C03F429EFFC3800CB5793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4C03F229EFFC3800CB5793 /* LaunchScreen.storyboard */; };
-		FC4C043129F0203600CB5793 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4C042629EFFF4800CB5793 /* AppsFlyerSKAdNetworkSDKLessClient.framework */; };
+		FC761C7D29F157FA00D72712 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4C042629EFFF4800CB5793 /* AppsFlyerSKAdNetworkSDKLessClient.framework */; };
+		FC761C7E29F157FA00D72712 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC4C042629EFFF4800CB5793 /* AppsFlyerSKAdNetworkSDKLessClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC761C7F29F157FA00D72712 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC761C7E29F157FA00D72712 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC4C03E429EFFC3600CB5793 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC4C043129F0203600CB5793 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */,
+				FC761C7D29F157FA00D72712 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,7 @@
 				FC4C03E029EFFC3600CB5793 /* Sources */,
 				FC4C03E129EFFC3600CB5793 /* Frameworks */,
 				FC4C03E229EFFC3600CB5793 /* Resources */,
+				FC761C7F29F157FA00D72712 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,8 +317,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				FRAMEWORK_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
 					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftExample/Info.plist;
@@ -334,8 +350,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				FRAMEWORK_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
 					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftExample/Info.plist;
