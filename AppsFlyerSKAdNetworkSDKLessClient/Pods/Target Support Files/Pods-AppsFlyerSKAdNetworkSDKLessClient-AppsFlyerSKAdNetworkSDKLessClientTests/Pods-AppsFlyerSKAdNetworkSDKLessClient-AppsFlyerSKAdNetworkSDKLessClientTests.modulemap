@@ -1,6 +1,0 @@
-framework module Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests {
-  umbrella header "Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

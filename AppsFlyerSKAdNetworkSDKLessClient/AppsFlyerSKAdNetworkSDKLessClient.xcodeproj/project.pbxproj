@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20651CF095484609D58F0D30 /* Pods_AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C53F28E4A299ECC0AC40A /* Pods_AppsFlyerSKAdNetworkSDKLessClient.framework */; };
-		43D88CEB9544DA472E859073 /* Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293F6839116BEC5354203BEA /* Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework */; };
 		FCCE70BF29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCE70BB29F14B1A00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m */; };
 		FCCE70C029F14B1B00A6332B /* SDKLessS2SMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCE70BC29F14B1B00A6332B /* SDKLessS2SMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCCE70C129F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FCCE70BD29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,12 +26,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04F38F2639EA67152FB6BFA1 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		293F6839116BEC5354203BEA /* Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60F00F9992E4F38CF38E47BB /* Pods-AppsFlyerSKAdNetworkSDKLessClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSKAdNetworkSDKLessClient.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient/Pods-AppsFlyerSKAdNetworkSDKLessClient.debug.xcconfig"; sourceTree = "<group>"; };
-		700C53F28E4A299ECC0AC40A /* Pods_AppsFlyerSKAdNetworkSDKLessClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSKAdNetworkSDKLessClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3B398E9719C0E194B318D2D /* Pods-AppsFlyerSKAdNetworkSDKLessClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSKAdNetworkSDKLessClient.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient/Pods-AppsFlyerSKAdNetworkSDKLessClient.release.xcconfig"; sourceTree = "<group>"; };
-		A716D2B39DF1CC750EEE79F9 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCCE70BB29F14B1A00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsFlyerSKAdNetworkSDKLessClient.m; sourceTree = "<group>"; };
 		FCCE70BC29F14B1B00A6332B /* SDKLessS2SMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKLessS2SMessage.h; sourceTree = "<group>"; };
 		FCCE70BD29F14B1B00A6332B /* AppsFlyerSKAdNetworkSDKLessClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsFlyerSKAdNetworkSDKLessClient.h; sourceTree = "<group>"; };
@@ -48,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20651CF095484609D58F0D30 /* Pods_AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,42 +48,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCFD39D429EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient.framework in Frameworks */,
-				43D88CEB9544DA472E859073 /* Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C7643A96E3E44CEB691EFBA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				700C53F28E4A299ECC0AC40A /* Pods_AppsFlyerSKAdNetworkSDKLessClient.framework */,
-				293F6839116BEC5354203BEA /* Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8F8C5DA120133CF6E137EFFA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				60F00F9992E4F38CF38E47BB /* Pods-AppsFlyerSKAdNetworkSDKLessClient.debug.xcconfig */,
-				A3B398E9719C0E194B318D2D /* Pods-AppsFlyerSKAdNetworkSDKLessClient.release.xcconfig */,
-				04F38F2639EA67152FB6BFA1 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.debug.xcconfig */,
-				A716D2B39DF1CC750EEE79F9 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		FCFD39C129EFF7C700560E82 = {
 			isa = PBXGroup;
 			children = (
 				FCFD39CD29EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClient */,
 				FCFD39D729EFF7C800560E82 /* AppsFlyerSKAdNetworkSDKLessClientTests */,
 				FCFD39CC29EFF7C800560E82 /* Products */,
-				8F8C5DA120133CF6E137EFFA /* Pods */,
-				8C7643A96E3E44CEB691EFBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,7 +110,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCFD39DD29EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClient" */;
 			buildPhases = (
-				E953376A1C3DD942A6F81AEC /* [CP] Check Pods Manifest.lock */,
 				FCFD39C629EFF7C700560E82 /* Headers */,
 				FCFD39C729EFF7C700560E82 /* Sources */,
 				FCFD39C829EFF7C700560E82 /* Frameworks */,
@@ -162,11 +128,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCFD39E029EFF7C800560E82 /* Build configuration list for PBXNativeTarget "AppsFlyerSKAdNetworkSDKLessClientTests" */;
 			buildPhases = (
-				2BBD46FDEBC16FBCEA0381CD /* [CP] Check Pods Manifest.lock */,
 				FCFD39CF29EFF7C800560E82 /* Sources */,
 				FCFD39D029EFF7C800560E82 /* Frameworks */,
 				FCFD39D129EFF7C800560E82 /* Resources */,
-				717B27669903A9EB2DA9C11D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,70 +194,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2BBD46FDEBC16FBCEA0381CD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		717B27669903A9EB2DA9C11D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests/Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E953376A1C3DD942A6F81AEC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppsFlyerSKAdNetworkSDKLessClient-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCFD39C729EFF7C700560E82 /* Sources */ = {
@@ -442,7 +342,6 @@
 		};
 		FCFD39DE29EFF7C800560E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60F00F9992E4F38CF38E47BB /* Pods-AppsFlyerSKAdNetworkSDKLessClient.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -480,7 +379,6 @@
 		};
 		FCFD39DF29EFF7C800560E82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3B398E9719C0E194B318D2D /* Pods-AppsFlyerSKAdNetworkSDKLessClient.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -518,7 +416,6 @@
 		};
 		FCFD39E129EFF7C800560E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04F38F2639EA67152FB6BFA1 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -536,7 +433,6 @@
 		};
 		FCFD39E229EFF7C800560E82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A716D2B39DF1CC750EEE79F9 /* Pods-AppsFlyerSKAdNetworkSDKLessClient-AppsFlyerSKAdNetworkSDKLessClientTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

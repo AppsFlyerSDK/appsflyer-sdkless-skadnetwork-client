@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests : NSObject
-@end
-@implementation PodsDummy_Pods_AppsFlyerSKAdNetworkSDKLessClient_AppsFlyerSKAdNetworkSDKLessClientTests
-@end
