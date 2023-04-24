@@ -26,11 +26,11 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		70B58816CDC71EF6CE13D453 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5432745E46F610CB73FEEE2B /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		82E2AA4988E8AFB95AA94215 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0ABF474FB7FC16B823AE54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		A3AE442554B571CD037128BD /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51C9164558E21C76E1A64147 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */; };
+		9811A78CF200212AD8C4E4F0 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959ED74438891BFC34A1424D /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */; };
+		AE0B3F1476EFAA10EFE34A65 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B60EF15AF945FE04A4CF54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */; };
+		EBD8535792F03F6B6DF7EC72 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8DC3E873CB5234364FC237 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0BF29CE783E2F8E1BD1805D2 /* AppsFlyerSDKLessSKAdNetworkClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AppsFlyerSDKLessSKAdNetworkClient.podspec; path = ../AppsFlyerSDKLessSKAdNetworkClient.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		198FFCC0FDF9D2FA17A34786 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		25A533E025503E5600847EE0 /* AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A533E925503E5600847EE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25A533EB25503E5700847EE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,9 +54,10 @@
 		25A533F725503E8800847EE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25A533F825503E8800847EE0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25A533F925503E8800847EE0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51C9164558E21C76E1A64147 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		535CA706FB6A5F6BAD25BD27 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		5432745E46F610CB73FEEE2B /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26B60EF15AF945FE04A4CF54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8DC3E873CB5234364FC237 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF43C23CB14F8FCD10BBE31 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		54BEDFD134A51CC0AEE3F183 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* AppsFlyerSDKLessSKAdNetworkClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppsFlyerSDKLessSKAdNetworkClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,18 +77,14 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		67454E0DC35CDE880F721355 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; sourceTree = "<group>"; };
-		6C105BD7357FBEE459736517 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		76D9D895B4D815BBAE8CF4DB /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F0ABF474FB7FC16B823AE54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82C3D658ACC3D2F0679A4EE3 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig"; sourceTree = "<group>"; };
+		83FC2DBE246C9053385252AE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9543B3515ADFC0D33EF1BD5A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		ABD59423EA6226E142E38252 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		AC36B47DD68BB299F0399912 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		CE82FE5E2B597F9F1392C5B2 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		959ED74438891BFC34A1424D /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE4E2AF2DB6D973FA34C686 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		F3F36FAC245C573719C328DE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		E55913FE0E18C59E061E8655 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3AE442554B571CD037128BD /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework in Frameworks */,
+				9811A78CF200212AD8C4E4F0 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +103,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				82E2AA4988E8AFB95AA94215 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework in Frameworks */,
+				AE0B3F1476EFAA10EFE34A65 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +114,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				70B58816CDC71EF6CE13D453 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework in Frameworks */,
+				EBD8535792F03F6B6DF7EC72 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,21 +135,6 @@
 			path = "AppsFlyerSDKLessSKAdNetworkClient_Example-Swift";
 			sourceTree = "<group>";
 		};
-		4D03B5C6698DCA1DA7AD2782 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CE82FE5E2B597F9F1392C5B2 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */,
-				6C105BD7357FBEE459736517 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */,
-				76D9D895B4D815BBAE8CF4DB /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */,
-				AC36B47DD68BB299F0399912 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */,
-				535CA706FB6A5F6BAD25BD27 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */,
-				67454E0DC35CDE880F721355 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */,
-				ABD59423EA6226E142E38252 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */,
-				F3F36FAC245C573719C328DE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +144,7 @@
 				25A533E125503E5600847EE0 /* AppsFlyerSDKLessSKAdNetworkClient_Example-Swift */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				4D03B5C6698DCA1DA7AD2782 /* Pods */,
+				F73E3F5A653754B001456DE7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,9 +165,9 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				7F0ABF474FB7FC16B823AE54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */,
-				5432745E46F610CB73FEEE2B /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */,
-				51C9164558E21C76E1A64147 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */,
+				26B60EF15AF945FE04A4CF54 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example.framework */,
+				959ED74438891BFC34A1424D /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Example_AppsFlyerSDKLessSKAdNetworkClient_Example_Swift.framework */,
+				2D8DC3E873CB5234364FC237 /* Pods_AppsFlyerSDKLessSKAdNetworkClient_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,6 +228,19 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		F73E3F5A653754B001456DE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				54BEDFD134A51CC0AEE3F183 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */,
+				82C3D658ACC3D2F0679A4EE3 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */,
+				83FC2DBE246C9053385252AE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */,
+				E55913FE0E18C59E061E8655 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */,
+				198FFCC0FDF9D2FA17A34786 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */,
+				4BF43C23CB14F8FCD10BBE31 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,11 +248,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25A533F325503E5700847EE0 /* Build configuration list for PBXNativeTarget "AppsFlyerSDKLessSKAdNetworkClient_Example-Swift" */;
 			buildPhases = (
-				5F0A45B00A5BAE1583A15D42 /* [CP] Check Pods Manifest.lock */,
+				00537A9AB95D77702E314260 /* [CP] Check Pods Manifest.lock */,
 				25A533DC25503E5600847EE0 /* Sources */,
 				25A533DD25503E5600847EE0 /* Frameworks */,
 				25A533DE25503E5600847EE0 /* Resources */,
-				FFB1E39D657B92874246B112 /* [CP] Embed Pods Frameworks */,
+				4FF861BA4CC043AEC49ED146 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,11 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AppsFlyerSDKLessSKAdNetworkClient_Example" */;
 			buildPhases = (
-				0D8F7D9D00482EAA604EA1F8 /* [CP] Check Pods Manifest.lock */,
+				AFD878D7636B8443BA374EB6 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				BA6A187EFAC3EF0990906B26 /* [CP] Embed Pods Frameworks */,
+				662214C4146BB64466A66C9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,11 +286,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "AppsFlyerSDKLessSKAdNetworkClient_Tests" */;
 			buildPhases = (
-				CBAD6858425EF69A43BB5D20 /* [CP] Check Pods Manifest.lock */,
+				9565F48C984A03D3B5138216 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				C827E795FBF9B210F6564502 /* [CP] Embed Pods Frameworks */,
+				3EC37FB107BBCF371CDB1A57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,29 +382,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D8F7D9D00482EAA604EA1F8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5F0A45B00A5BAE1583A15D42 /* [CP] Check Pods Manifest.lock */ = {
+		00537A9AB95D77702E314260 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,25 +404,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA6A187EFAC3EF0990906B26 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppsFlyerSDKLessSKAdNetworkClient.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C827E795FBF9B210F6564502 /* [CP] Embed Pods Frameworks */ = {
+		3EC37FB107BBCF371CDB1A57 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -468,7 +424,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests/Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CBAD6858425EF69A43BB5D20 /* [CP] Check Pods Manifest.lock */ = {
+		4FF861BA4CC043AEC49ED146 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppsFlyerSDKLessSKAdNetworkClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		662214C4146BB64466A66C9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppsFlyerSDKLessSKAdNetworkClient.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9565F48C984A03D3B5138216 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,22 +482,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFB1E39D657B92874246B112 /* [CP] Embed Pods Frameworks */ = {
+		AFD878D7636B8443BA374EB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppsFlyerSDKLessSKAdNetworkClient.framework",
+				"$(DERIVED_FILE_DIR)/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift/Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -595,7 +591,7 @@
 /* Begin XCBuildConfiguration section */
 		25A533F125503E5700847EE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABD59423EA6226E142E38252 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */;
+			baseConfigurationReference = 83FC2DBE246C9053385252AE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -640,7 +636,7 @@
 		};
 		25A533F225503E5700847EE0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3F36FAC245C573719C328DE /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */;
+			baseConfigurationReference = E55913FE0E18C59E061E8655 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example-AppsFlyerSDKLessSKAdNetworkClient_Example-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -758,13 +754,14 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE82FE5E2B597F9F1392C5B2 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */;
+			baseConfigurationReference = 54BEDFD134A51CC0AEE3F183 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient-Prefix.pch";
 				INFOPLIST_FILE = "AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.appsflyer.AppsFlyerSDKLessSKAdNetworkClient-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -775,13 +772,14 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C105BD7357FBEE459736517 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */;
+			baseConfigurationReference = 82C3D658ACC3D2F0679A4EE3 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient-Prefix.pch";
 				INFOPLIST_FILE = "AppsFlyerSDKLessSKAdNetworkClient/AppsFlyerSDKLessSKAdNetworkClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.appsflyer.AppsFlyerSDKLessSKAdNetworkClient-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -792,7 +790,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76D9D895B4D815BBAE8CF4DB /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */;
+			baseConfigurationReference = 198FFCC0FDF9D2FA17A34786 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -817,7 +815,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC36B47DD68BB299F0399912 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */;
+			baseConfigurationReference = 4BF43C23CB14F8FCD10BBE31 /* Pods-AppsFlyerSDKLessSKAdNetworkClient_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -31,7 +31,7 @@
     return shared;
 }
 
-- (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey appID:(NSString *)appID completionBlock:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionBlock {
+- (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey appID:(NSString *)appID completionBlock:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionBlock {
     dispatch_async(sdkLessQueue, ^{
         NSURL *url = [self buildRequestURLWithUID:clientID appId:appID devKey:devKey];
         
@@ -60,12 +60,13 @@
                     return;
                 } else if (data) {
                     NSError *error;
-                    // TODO: add check for 'isKindOf: Class' in future.
                     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-                    NSNumber *conversionValue = (NSNumber *)result[@"value"];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completionBlock(conversionValue, error);
-                    });
+                    if (result != nil && [result isKindOfClass:[NSDictionary class]]) {
+                        SDKLessS2SMessage *s2sMessage = [[SDKLessS2SMessage alloc] initWithMessage:result];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionBlock(s2sMessage, error);
+                        });
+                    }
                     return;
                 }
             }
@@ -76,12 +77,12 @@
 
 - (void)requestConversionValueWithDevKey:(NSString *)devKey
                                    appID:(NSString *)appID
-                         completionHandler:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionHandler {
+                         completionHandler:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionHandler {
     
-    NSString *vendorID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];    
+    NSString *vendorID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
     if (![vendorID isEqualToString:@""] && vendorID != nil) {
-        [self requestConversionValueWithUID:vendorID devKey:devKey appID:appID completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
+        [self requestConversionValueWithUID:vendorID devKey:devKey appID:appID completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
             if (error != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completionHandler(nil, error);
@@ -100,8 +101,23 @@
 }
 
 - (void)registerForAdNetworkAttribution {
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:0 coarseValue:SKAdNetworkCoarseConversionValueHigh completionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }];
+        return;
+    }
+    
+    if (@available(iOS 15.4, *)) {
+        [SKAdNetwork updatePostbackConversionValue:0 completionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }];
+        return;
+    }
+    
     if (@available(iOS 11.3, *)) {
         [SKAdNetwork registerAppForAdNetworkAttribution];
+        return;
     }
 }
 
@@ -111,18 +127,55 @@
     }
 }
 
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler {
+    if (@available(iOS 15.4, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0)){
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue
+                                       coarseValue:coarseValue
+                                 completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler {
+    if (@available(iOS 16.1, *)) {
+        [SKAdNetwork updatePostbackConversionValue:conversionValue
+                                       coarseValue:coarseValue
+                                        lockWindow:lockWindow
+                                 completionHandler:^(NSError * _Nullable error) {
+            completionHandler(error);
+        }];
+    }
+}
+
+
 //Method builds request url with following parameters. If one of them is nil, returns url without query params.
 - (NSURL *)buildRequestURLWithUID:(NSString *)uid appId:(NSString *)appId devKey:(NSString *)devKey {
     NSURLComponents *queryURLComponents = [[NSURLComponents alloc] init];
     
     queryURLComponents.scheme = @"https";
     queryURLComponents.host = @"skadsdkless.appsflyer.com";
-    queryURLComponents.path = @"/api/v1.0/conversion-value";
+    queryURLComponents.path = @"/api/v2.0/conversion-value";
     
     if (uid != nil && appId != nil) {
         NSURLQueryItem *uidItem = [[NSURLQueryItem alloc] initWithName:@"uid" value:uid];
         NSURLQueryItem *appIdItem = [[NSURLQueryItem alloc] initWithName:@"app_id" value:appId];
-        queryURLComponents.queryItems = @[appIdItem, uidItem];
+        NSURLQueryItem *sdkVersion = [[NSURLQueryItem alloc] initWithName:@"sdk_version" value:@"sdk_less"];
+        queryURLComponents.queryItems = @[appIdItem, uidItem, sdkVersion];
     }
 
     return queryURLComponents.URL;
@@ -146,7 +199,6 @@
             @"Authorization" : hmacString,
             };
 }
-
 
 - (NSString *)hmacForKey:(NSString *)key string:(NSString *)data {
     const char *cKey  = [key cStringUsingEncoding:NSASCIIStringEncoding];

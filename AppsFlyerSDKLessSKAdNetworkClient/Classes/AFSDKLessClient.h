@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SDKLessS2SMessage.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,12 +23,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)registerForAdNetworkAttribution;
 
 /*!
-    @brief AFSDKLessClient wrapper for `[SKAdNetwork updateConversionValue:]`
+    @brief AFSDKLessClient wrapper for `[SKAdNetwork updateConversionPostbackConversionValue:] methods`
     @param conversionValue  conversion value to update.
  
-    @discussion See the doc: https://developer.apple.com/documentation/storekit/skadnetwork/3566697-updateconversionvalue?language=objc
+    @discussion See the doc: https://developer.apple.com/documentation/storekit/skadnetwork
  */
 - (void)updateConversionValue:(NSInteger)conversionValue;
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler;
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0));
+
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                          coarseValue:(SKAdNetworkCoarseConversionValue)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^)(NSError * _Nullable error))completionHandler  API_AVAILABLE(ios(16.0));
 
 /*!
     @brief Perform request for conversion value using Vendor Identifier instead of
@@ -40,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)requestConversionValueWithDevKey:(NSString *)devKey
                                    appID:(NSString *)appID
-                       completionHandler:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionHandler;
+                       completionHandler:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionHandler;
 
 /*!
     @param devKey your AppsFlyer devKey.
@@ -50,8 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)requestConversionValueWithUID:(NSString *)clientID devKey:(NSString *)devKey
                                 appID:(NSString *)appID
-                      completionBlock:(void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completionBlock;
-
+                      completionBlock:(void (^)(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error))completionBlock;
 
 @end
 NS_ASSUME_NONNULL_END
