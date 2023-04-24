@@ -19,10 +19,13 @@ NSString *devKey = @"YOUR_DEV_KEY";
     [[AFSDKLessClient shared] registerForAdNetworkAttribution];
     
     if ([self isDailyUpdateConversionWindowExpired]) {
-        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-            NSInteger conversion = [result intValue];
-            if (conversion) {
-                [[AFSDKLessClient shared] updateConversionValue:conversion];
+        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
+            
+            if (result) {
+                [self updateSKANConversionWith:result];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
             }
         }];
@@ -43,10 +46,9 @@ NSString *devKey = @"YOUR_DEV_KEY";
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     if ([self isDailyUpdateConversionWindowExpired]) {
-        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-            NSInteger conversion = [result intValue];
-            if (conversion) {
-                [[AFSDKLessClient shared] updateConversionValue:conversion];
+        [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+            if (result) {
+                [self updateSKANConversionWith:result];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                 completionHandler(UIBackgroundFetchResultNewData);
             } else {
@@ -74,10 +76,9 @@ NSString *devKey = @"YOUR_DEV_KEY";
     
     void (^completionBlock)(void) = ^{
         if ([self isDailyUpdateConversionWindowExpired]) {
-            [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(NSNumber * _Nullable result, NSError * _Nullable error) {
-                NSInteger conversion = [result intValue];
-                if (conversion) {
-                    [[AFSDKLessClient shared] updateConversionValue:conversion];
+            [[AFSDKLessClient shared] requestConversionValueWithUID:uid devKey:devKey appID:appId completionBlock:^(SDKLessS2SMessage * _Nullable result, NSError * _Nullable error) {
+                if (result) {
+                    [self updateSKANConversionWith:result];
                     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"kSDKLessWindow"];
                     [task setTaskCompletedWithSuccess:YES];
                 } else {
@@ -112,6 +113,24 @@ NSString *devKey = @"YOUR_DEV_KEY";
     NSInteger diff = [[[NSCalendar currentCalendar] components:(NSCalendarUnitHour) fromDate:date toDate:[NSDate date] options:kNilOptions] hour];
     //If difference between current time and stored 'kSDKLessWindow' is more than 24 hours, return true.
     return diff > 24;
+}
+
+// This method contains all available SKAN upcv API usage examples.
+// Please, choose one, depending on your expected postback version + iOS version, according to the Apple SKAdNetwork doc
+// These methods are basically SKAdNetwork API wrappers, you can call Apple API directly.
+- (void)updateSKANConversionWith:(SDKLessS2SMessage*)message {
+    // Example for iOS 16.1 version may also contain `lockWindow` parameter
+    [[AFSDKLessClient shared] updatePostbackConversionValue:message.conversionValue coarseValue:[message getCoarseValueRepresentation] completionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+    
+    // Example for iOS 15.5 version
+    [[AFSDKLessClient shared] updatePostbackConversionValue:message.conversionValue completionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+
+    // Example for iOS 11.3 and higher
+    [[AFSDKLessClient shared] updateConversionValue:message.conversionValue];
 }
 
 @end
