@@ -17,11 +17,11 @@ Key    |   Description
 `app_id`       |   application id
 `sdk_version`  |   sdk or framework version for the request
 `af_timestamp` |   current time in miliseconds
-`af_sig`       |   Create an HMAC SHA256 signature by concatenating the values of the timestamp, dev key, app id, and AppsFlyer id: `HmacSHA256(af_timestamp + DevKey + app_id + uid)`
+`af_sig`       |   Create an HMAC SHA256 signature by concatenating the values of the timestamp, dev key, app id, and AppsFlyer id: `HmacSHA256(af_timestamp + app_id + uid)`
 
 
 app_id in a format - `"idxxxxxxx"`
-The HMAC is generated using SHA256 and uses the DevKey as the signature’s secret key. The account Dev Key is taken from the App Settings page in the AppsFlyer dashboard.
+The HMAC is generated using SHA256 and uses the `DevKey` as the signature secret key. The account Dev Key is taken from the App Settings page in the AppsFlyer dashboard.
 
 ##### Example 1:
 ```
